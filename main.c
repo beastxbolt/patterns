@@ -1,110 +1,53 @@
-#include <stdio.h>
+#include<stdio.h>
 
 int main() {
-    // Right Half Pyramid
-    int i, j, n = 5;
-    for (i = 1; i <= n; i++) {
-        for (j = 1; j <= i; j++) {
-            printf("* ");
-        }
-        printf("\n");
+    char name[5] = "Book", reversed[5] = "";
+    int i, length = (sizeof(name) / sizeof(name[0])) - 1;
+
+    for (i = 1; i <= length; i++) {
+        reversed[i - 1] = name[length - i];
     }
 
+    printf("%s\n", name);
+    printf("%s", reversed);
 
-    // Left Half Pyramid
-    int i, j, k, n = 5;
-    for (i = 1; i <= n; i++) {
-        for (j = (n - 1); j >= i; j--) {
-            printf("  ");
-        }
 
-        for (k = 1; k <= i; k++) {
-            printf("* ");
-        }
 
-        printf("\n");
+    char str1[6] = "Story", str2[5] = "Book", str3[10] = "";
+    int str1len = (sizeof(str1) / sizeof(str1[0])) - 1;
+    int str2len = (sizeof(str2) / sizeof(str2[0])) - 1;
+    int i, j;
+
+    for (i = 1; i <= str1len; i++) {
+        str3[i - 1] = str1[i - 1];
     }
 
+    for (j = 1; j <= str2len; j++) {
+        str3[(str1len + j) - 1] = str2[j - 1];
+    }
 
-    // Full Pyramid
-    int i, j, k, n = 5;
+    printf("%s", str3);
+
+
+
+    int i, j, k, a, n = 5;
+
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= (n - i); j++) {
-            printf(" ");
-        }
-
-        for (k = ((2 * i) - 1); k >= 1; k--) {
-            if (k % 2 == 0) {
-                printf(" ");
-            } else {
-                printf("*");
-            }
-        }
-
-        printf("\n");
-    }
-
-
-    // Inverted Right Half Pyramid
-    int i, j, n = 5;
-
-    for (i = n; i >= 1; i--) {
-        for (j = 1; j <= i; j++) {
-            printf("* ");
-        }
-        printf("\n");
-    }
-
-
-    // Inverted Left Half Pyramid
-    int i, j, k, n = 5;
-    for (i = 1; i <= n; i++) {
-        for (j = 1; j < i; j++) {
             printf("  ");
         }
 
-        for (k = 1; k <= (n+1) - i; k++) {
-            printf("* ");
-        }
+        for (k = 1, a = i; a >= i; k++) {
+            printf("%d ", a);
 
-        printf("\n");
-    }
-
-
-    // Inverted Full Pyramid
-    int i, j, k, n = 5;
-    for (i = 1; i <= n; i++) {
-        for (j = 1; j <= (i - 1); j++) {
-            printf(" ");
-        }
-
-        for (k = ((2 * ((n + 1) - i)) - 1); k >= 1; k--) {
-            if (k % 2 == 0) {
-                printf(" ");
+            if ((k + i) > (2 * i) - 1) {
+                a--;
             } else {
-                printf("*");
+                a++;
             }
-        }
 
+        }
         printf("\n");
     }
-
-
-    // Rhombus
-    int i, j, k, n = 5;
-    for (i = 1; i <= n; i++) {
-        for (j = 1; j <= (i - 1); j++) {
-            printf(" ");
-        }
-
-        for (k = ((2 * n) - 1); k >= 1; k--) {
-            if (k % 2 == 0) {
-                printf(" ");
-            } else {
-                printf("*");
-            }
-        }
-
-        printf("\n");
-    }
+    
 }
